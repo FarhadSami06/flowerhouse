@@ -22,6 +22,7 @@
 			}
 			#logo {
 				margin-left: 30px;
+				cursor: pointer;
 			}
 			.navigation {
 				float: right;
@@ -31,6 +32,7 @@
 				float: left;
 				margin: 20px 70px 0 0;
 				list-style-type: none;
+				color: #4c5159;
 				
 			}
 			.navigation a {
@@ -50,7 +52,7 @@
 				border: 10px solid #ffffff;
 				position: relative;
 				overflow: hidden;
-				margin: 0 325px;
+				margin: 0 auto;
 				
 			}
 			

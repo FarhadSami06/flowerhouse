@@ -11,6 +11,7 @@
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<link rel="stylesheet" href="css/main.css" />
 		<script src="js/myscript2.js"></script>
+		
 
 
 	</head>
@@ -24,8 +25,8 @@
 				<div class="navigation">
 					<ul>
 						<li id="home"><a href="index.php">Home</a></li>
-						<li><a href="view-collection.php">Flower Collection</a></li>
-						<li><a href="collection.php"><img src="images/phone.png" />&nbsp;&nbsp;(949) 300 2565</a></li>
+						<li><a href="collection.php">Flower Collection</a></li>
+						<li><img src="images/phone.png" />&nbsp;&nbsp;(949) 300 2565</li>
 					</ul>
 				</div>
 			</div>

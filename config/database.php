@@ -1,10 +1,10 @@
 <?php
-   global $db_link;
-   
-   $db_link = mysql_connect('localhost', 'root', 'root') or die ('Could not connect to db'  . mysql_error());
-mysql_select_db('flowerhouse');
-   if(!db_link) {
-   	die("could not connect to the database: " . mysql_error());
-   }
-   
-   ?>
+
+
+$db_link = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die('Could not connect to db' . mysql_error());
+$db_selected = mysql_select_db(DB_NAME, $db_link);
+if (!db_selected) {
+	die("could not connect to the database: " . mysql_error());
+}
+?>
+

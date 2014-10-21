@@ -4,7 +4,10 @@
 	<?php
 	require_once("config/constants.php");
 	require_once("config/database.php");
+	
 	?>
+	
+					
 	
 	<head>
 		<title>Home</title>
@@ -17,24 +20,56 @@
 		<div class="layout-container">
 				<div id="top-bar"></div>
 			<div class="header-container">
-			<a href="index.php"><img id="logo" src="images/logo.png" /></a>
-		
+			<img id="logo" src="images/logo.png" />
 				<div class="navigation">
 					<ul>
 						<li id="home"><a href="index.php">Home</a></li>
-						<li><a href="view-collection.php">Flower Collection</a></li>
-						<li><a href="collection.php"><img src="images/phone.png" />&nbsp;&nbsp;(949) 300 2565</a></li>
+						<li><a href="collection.php">Flower Collection</a></li>
+						<li><img src="images/phone.png" />&nbsp;&nbsp;(949) 300 2565</li>
 					</ul>
 				</div>
 			</div>
 			<div class="main-container">
+				
 				<div id ="picture-box" class="pic-box">
 					
+				<?php
+			
+				$sql = "SELECT * FROM ".TBL_COLLECTIONS." ORDER BY `id` ASC";
+				$query = mysql_query($sql, $db_link) or die(mysql_error());
+				
+				$collections = array();
+				while ($row = mysql_fetch_assoc($query)) {
+					
+					$new_coll = array(); //new sub-array of $collections
+		
+					$new_coll["id"] = $row["id"];
+					$new_coll["title"] = $row["title"];
+					$new_coll["description"] = $row["description"];
+					
+					
+					$p_sql = "SELECT * FROM ".TBL_PICTURES." WHERE `is_cover`='1' AND `collection`='".$row["id"]."' ORDER BY `id` ASC";
+					$p_query = mysql_query($p_sql, $db_link) or die(mysql_error());
+					$cover_photo = "";
+					
+					while ($p_row = mysql_fetch_assoc($p_query)) {
+					$cover_photo = DIR_IMG."/".$row["id"]."/".$p_row["filename"];
+					
+					}
+					$new_coll["cover"] = $cover_photo;
+					$collections[] = $new_coll;
+								
+				
+				
+				?>
+				
+				<img class="slider-img slider-off" src="<?php echo $cover_photo; ?>" />
+					
+						 <?php } ?>
+				
 					<div id="text-box">
 						<img id="leftArrow" src="images/left-arrow.png" />
-				<!--		<h1 class="img-texts">Share your emotions</h1> -->
 						<img id="rightArrow" src="images/right-arrow.png" />
-						<div id="floatText"></div>
 					</div>
 				</div>
 				

@@ -1,5 +1,12 @@
 $().ready(function() {
 
+	$("#logo").click(function() {
+			document.body.style.cursor = "pointer";
+			location.href = "index.php";
+		});
+	
+	
+	
 	var images = ["images/3/event1.png", "images/3/event2.png", "images/3/event3.png", "images/3/event4.png", "images/3/event5.png", "images/3/event6.png"];
 
 	var current_image_index = 0;
@@ -47,6 +54,7 @@ $().ready(function() {
 			
 			var current_dot = $(dot_container.find('div.dot-on')[current_image_index]);
 			var next_dot = $(dot_container.find('div.dot-on')[next_image_index()]);
+			
 			current_image.animate({
 				'left' : '-1020'
 			}, 800, function() {
